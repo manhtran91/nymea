@@ -104,6 +104,9 @@ void NymeaCore::init() {
     qCDebug(dcApplication) << "Creating Server Manager";
     m_serverManager = new ServerManager(m_platform, m_configuration, this);
 
+    qCDebug(dcApplication()) << "Create Zigbee Manager";
+    m_zigbeeManager = new ZigbeeManager(this);
+
     qCDebug(dcApplication) << "Creating Hardware Manager";
     m_hardwareManager = new HardwareManagerImplementation(m_platform, m_serverManager->mqttBroker(), this);
 
@@ -641,7 +644,9 @@ QStringList NymeaCore::loggingFilters()
         "BluetoothServer",
         "BluetoothServerTraffic",
         "Mqtt",
-        "Translations"
+        "Translations",
+        "Zigbee",
+        "ZigbeeHardwareResource"
     };
 
     return loggingFilters;
@@ -690,6 +695,11 @@ TagsStorage *NymeaCore::tagsStorage() const
 Platform *NymeaCore::platform() const
 {
     return m_platform;
+}
+
+ZigbeeManager *NymeaCore::zigbeeManager() const
+{
+    return m_zigbeeManager;
 }
 
 void NymeaCore::gotEvent(const Event &event)

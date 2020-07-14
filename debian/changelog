@@ -1,7 +1,20 @@
-nymea (0.23.0) UNRELEASED; urgency=medium
+nymea (0.23.0) xenial; urgency=medium
 
+  [ Michael Zanetti ]
+  * Retry setup if it fails at startup (e.g. network isn't up yet)
+  * Store state changes immediately when they change
+  * 0.22
+  * Allow emitting events from things directly
+  * Vaguely inform the plugin about the origin of actions.
+  * Don't call thingRemoved() on the plugin in case of reconfiguring
+  * Use bindValue for composing query strings for the log DB
+  * 0.23
+  * Fix time filter
 
- -- Michael Zanetti <michael.zanetti@nymea.io>  Fri, 05 Jun 2020 19:41:09 +0200
+  [ Simon Stürz ]
+  * Fix missing name method override for json handlers
+
+ -- Jenkins <jenkins@nymea.io>  Tue, 14 Jul 2020 18:58:31 +0200
 
 nymea (0.22.0) UNRELEASED; urgency=medium
 

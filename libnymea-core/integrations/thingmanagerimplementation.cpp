@@ -1994,7 +1994,6 @@ void ThingManagerImplementation::loadThingStates(Thing *thing)
             }
             value.convert(stateType.type());
             thing->setStateValue(stateType.id(), value);
-            qWarning() << "**** loaded state" << stateType.name() << value;
         } else {
             thing->setStateValue(stateType.id(), stateType.defaultValue());
         }
